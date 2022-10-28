@@ -15,7 +15,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "PROJECT_ID-tfstate"
+    bucket = "idyllic-journey-126508-tfstate"
     prefix = "env/dev"
   }
 }
