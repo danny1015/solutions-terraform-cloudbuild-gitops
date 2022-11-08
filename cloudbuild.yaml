@@ -14,10 +14,10 @@
 
 
 steps:
-- id: 'branch name'
-  name: 'alpine'
-  entrypoint: 'sh'  
-  args: 
+- id: 'branch name' #Use the id field to set a unique identifier for a build step
+  name: 'alpine' #container image 
+  entrypoint: 'sh' #command
+  args: #arguments
   - '-c'
   - | 
       echo "***********************"
