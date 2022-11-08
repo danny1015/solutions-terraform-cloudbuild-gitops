@@ -13,6 +13,9 @@
 # limitations under the License.
 
 
-variable "project" {}
-variable "env" {}
-variable "subnet" {}
+terraform {
+  backend "gcs" {
+    bucket = "idyllic-journey-126508-tfstate"
+    prefix = "env/stage"
+  }
+}
