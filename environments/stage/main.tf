@@ -14,9 +14,10 @@
 
 
 locals {
-  env = "prod"
-  subnet = "10.10.10.0/24"
+  env = "stage"
+  subnet = "10.30.10.0/24"
 }
+
 
 provider "google" {
   project = "${var.project}"
