@@ -15,6 +15,7 @@
 
 locals {
   env = "prod"
+  subnet = "10.10.10.0/24"
 }
 
 provider "google" {
@@ -25,6 +26,7 @@ module "vpc" {
   source  = "../../modules/vpc"
   project = "${var.project}"
   env     = "${local.env}"
+  subnet = "${local.subnet}"
 }
 
 module "http_server" {
