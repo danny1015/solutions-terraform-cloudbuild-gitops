@@ -13,30 +13,9 @@
 # limitations under the License.
 
 
-locals {
-  env = "prod"
-  subnet = "10.10.10.0/24"
-}
-
-provider "google" {
-  project = "${var.project}"
-}
-
-module "vpc" {
-  source  = "../../modules/vpc"
-  project = "${var.project}"
-  env     = "${local.env}"
-  subnet = "${local.subnet}"
-}
-
-module "http_server" {
-  source  = "../../modules/http_server"
-  project = "${var.project}"
-  subnet  = "${module.vpc.subnet}"
-}
-
-module "firewall" {
-  source  = "../../modules/firewall"
-  project = "${var.project}"
-  subnet  = "${module.vpc.subnet}"
+terraform {
+  backend "gcs" {
+    bucket = "idyllic-journey-126508-tfstate"
+    prefix = "env/stage"
+  }
 }
